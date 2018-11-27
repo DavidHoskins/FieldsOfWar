@@ -20,7 +20,7 @@ class UIHandler
 {
 private:
 	enum UIElements{Name, Income, Expenses, Buildings, Units, Buildings_Button, Units_Button, Alliance, War, RoyalMarriage, RollValuesAtt, RollValuesDef, 
-		LossValuesAtt, LossValuesDef, UnitSizesAtt, UnitSizesDef};
+		LossValuesAtt, LossValuesDef, UnitSizesAtt, UnitSizesDef, FPS};
 
 	sf::Font* m_gameFont;
 	sf::Texture* m_menuBanner;
@@ -70,6 +70,7 @@ public:
 
 	void updateCombatInfo(int rollA, int rollD, int unitNumberA, int unitNumberD, int losesA, int losesD);
 
+	void setFPSElements(bool value);
 };
 
 #endif //!UIHANDLER_H

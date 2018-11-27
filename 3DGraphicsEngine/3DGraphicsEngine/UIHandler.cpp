@@ -351,6 +351,13 @@ void UIHandler::setCombatElements(bool value)
 	m_textElements[UnitSizesDef]->setIsActive(value);
 }
 
+//Sets all FPSELements to the input value
+void UIHandler::setFPSElements(bool value) 
+{
+	m_textElements[FPS]->setIsActive(value);
+	m_textElements[FPS]->setUIOrder(3);
+}
+
 //Create a text element using input values, returns a pointer to the UIText so that the class that called it can use the data on its update.
 UIText* UIHandler::createUITextElement(const sf::Vector2f& elementPosition, int fontSize, const sf::Color& fontColour)
 {
