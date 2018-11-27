@@ -222,11 +222,27 @@ void StrategyGame::mainRender()
 		if (m_Hexagon->getUpdateScreen())
 		{
 			m_window->clear();
+
+			float bufferMultiplier = 1.1f;
+
+			int xPosMin = m_window->getView().getCenter().x - ((m_window->getView().getSize().x * bufferMultiplier) / 2);
+			int xPosMax = (m_window->getView().getCenter().x + ((m_window->getView().getSize().x * bufferMultiplier) / 2));
+
+			int yPosMin = m_window->getView().getCenter().y - ((m_window->getView().getSize().y * bufferMultiplier) / 2);
+			int yPosMax = (m_window->getView().getCenter().y + ((m_window->getView().getSize().y * bufferMultiplier) / 2));
+
 			for (int i = 0; i < m_Hexagon->getMapHeight(); i++)
 			{
 				for (int j = 0; j < m_Hexagon->getMapWidth(); j++)
 				{
-					m_Hexagon->getHexAtPosition(j, i)->render(*m_window);
+					sf::Vector2f hexPos = m_Hexagon->getHexAtPosition(j, i)->getPosition();
+					if(hexPos.x < xPosMax && hexPos.x > xPosMin)
+					{
+						if(hexPos.y < yPosMax && hexPos.y > yPosMin)
+						{
+							m_Hexagon->getHexAtPosition(j, i)->render(*m_window);
+						}
+					}
 				}
 			}
 			for (int i = 0; i < m_Hexagon->m_unitsInGame.size(); i++)
