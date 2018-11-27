@@ -21,6 +21,8 @@ public:
 
 	int getUIOrder()const {return m_UIOrder;}
 	void setUIOrder(const int value){m_UIOrder = value;}
+
+	void setText(const std::string text);
 };
 
 #endif // !UITEXT_H
