@@ -9,5 +9,4 @@ void main()
  	StrategyGame* currentGame = new StrategyGame;
  	delete currentGame;
  	currentGame = nullptr;
-
 }

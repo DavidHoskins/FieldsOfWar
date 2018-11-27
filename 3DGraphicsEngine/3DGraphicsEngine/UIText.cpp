@@ -17,3 +17,8 @@ UIText::~UIText()
 		delete m_backgroundBox;
 	}
 }
+
+void UIText::setText(const std::string text) 
+{
+	this->setString(text);
+}
