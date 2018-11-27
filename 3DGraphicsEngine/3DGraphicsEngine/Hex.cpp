@@ -17,7 +17,7 @@ Hex::Hex(float radius, UIHandler* HexUI, sf::Texture** textures)
 	, m_hasSetPosition(false)
 {
 	setFillColor(sf::Color::Transparent);
-	setOutlineColor(sf::Color::Blue);
+	setOutlineColor(sf::Color::Black);
 	setOutlineThickness(5.0f);
 	m_tileType = grass;
 	m_Textures = textures;
@@ -28,6 +28,7 @@ Hex::Hex(float radius, UIHandler* HexUI, sf::Texture** textures)
 	float height = m_Textures[Hex::inlandSea]->getSize().y;
 	sf::Vector2f actualScale = sf::Vector2f(((radius * 2) / width), ((radius * 2) / height));
 	m_HexSprite->setScale(actualScale);
+	m_updatedRender = false;
 }
 
 //Basic constructor.
@@ -41,12 +42,13 @@ Hex::Hex(UIHandler* HexUI, sf::Texture** textures)
 	, m_baseValue(0)
 {
 	setFillColor(sf::Color::Transparent);
-	setOutlineColor(sf::Color::Blue);
+	setOutlineColor(sf::Color::Black);
 	setOutlineThickness(5.0f);
 	m_tileType = grass;
 	m_Textures = textures;
 	m_HexSprite = new sf::Sprite(*m_Textures[Hex::grass]);
 	m_HexSprite->setPosition(this->getPosition());
+	m_updatedRender = false;
 }
 
 //Destructor.
@@ -159,6 +161,7 @@ float Hex::sign(sf::Vector2i& pointToTest, sf::Vector2f& pointOne, sf::Vector2f&
 //Main update for hex.
 void Hex::update(InputHandler& inputHandler, HexHandler* hexHandler)
 {
+	m_updatedRender = true;
 	if (!m_hasSetPosition)
 	{
 		sf::Vector2f temp = sf::Vector2f(this->getPosition().x, this->getPosition().y);
@@ -168,37 +171,31 @@ void Hex::update(InputHandler& inputHandler, HexHandler* hexHandler)
 	switch (m_tileType)
 	{
 	case grass:
-		ChangeColour(sf::Color::White);
 		if (m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 2;
 		break;
 	case hill:
-		ChangeColour(sf::Color::White);
 		if (m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 3;
 		break;
 	case field:
-		ChangeColour(sf::Color::White);
 		if(m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 1;
 		break;
 	case city:
-		ChangeColour(sf::Color::White);
 		if (m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 1;
 		break;
 	case inlandSea:
-		ChangeColour(sf::Color::White);
 		if (m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 2;
 		break;
 	case openSea:
-		ChangeColour(sf::Color::White);
 		if (m_HexSprite->getTexture() != m_Textures[m_tileType])
 		m_HexSprite->setTexture(*m_Textures[m_tileType]);
 		m_baseMovementCost = 4;
@@ -220,8 +217,13 @@ void Hex::render(sf::RenderWindow& renderWindow) const
 void Hex::ChangeColour(sf::Color colourChange)
 {
 		//this->setOutlineColor(colourChange);
+	if (m_updatedRender) 
+	{
+		m_updatedRender = false;
 		this->m_HexSprite->setColor(colourChange);
+	}
 }
+
 
 //Setter with checks the value doesn't go over 1 as this is used as a multiplier.
 void Hex::setTaxEfficiency(const float value)

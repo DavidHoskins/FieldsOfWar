@@ -1,6 +1,8 @@
 #ifndef HEXHANDLER_H
 #define HEXHANDLER_H
 
+#include <thread>
+
 #include <SFML/Graphics.hpp>
 
 #include "PathFinder.h"
@@ -33,6 +35,10 @@ private:
 
 	void hexImageLoading();
 	void gameFontLoading();
+
+	static void AIUpdate(NationHandler* m_nationsInfo, HexHandler* HexArray);
+	std::thread AIThread;
+	bool initialSetup = false;
 
 public:
 	HexHandler(UIHandler* UIInfo);

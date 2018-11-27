@@ -32,6 +32,11 @@ private:
 
 	int m_timeLeftToMove = 0;
 
+	sf::CircleShape m_shadowEffect;
+
+	float m_bufferMultiplier = 1.1f;
+	float m_shadowPositionMultiplier = 0.975f;
+
 public:
 	UnitStack(float radius, int numbSides, bool isLandUnit, int unitID, HexHandler* mapInfo);
 

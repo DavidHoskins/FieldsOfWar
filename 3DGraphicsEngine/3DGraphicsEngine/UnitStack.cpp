@@ -3,6 +3,7 @@
 #include "InputHandler.h"
 #include "Hex.h"
 #include "HexHandler.h"
+#include "Nation.h"
 #include "UnitStack.h"
 
 //Constructor.
@@ -15,6 +16,9 @@ UnitStack::UnitStack(float radius, int numbSides, bool isLandUnit, int unitID, H
 	m_landUnits[Hex::infantry] = 1000;
 	m_hexArray = mapInfo->getHexArray();
 	m_latestHex = mapInfo->getHexAtPosition(0, 0);
+
+	m_shadowEffect = sf::CircleShape((radius * m_bufferMultiplier), numbSides);
+	m_shadowEffect.setFillColor(sf::Color::White);
 }
 
 //Main render for the unit's graphics.
@@ -22,6 +26,10 @@ void UnitStack::render(sf::RenderWindow& renderWindow) const
 {
 	if (!m_destroyed)
 	{
+		if (getIsSelected())
+		{
+			renderWindow.draw(m_shadowEffect);
+		}
 		renderWindow.draw(*this);
 	}
 }
@@ -53,6 +61,17 @@ float UnitStack::getCost()
 //Main update for the unit logic.
 void UnitStack::update(InputHandler& inputHandler, HexHandler* hexHandler)
 {
+	if(getFillColor() == sf::Color::White)
+	{
+		setFillColor(*m_nation->m_nationColor);
+	}
+	if(getIsSelected())
+	{
+		for(int i = 0; i < static_cast<unsigned>(m_pathfinder.m_returnPath.size()); i++)
+		{
+			m_pathfinder.m_returnPath[i]->ChangeColour(sf::Color::Black);
+		}
+	}
 	if (this->m_nation != hexHandler->m_nationsInfo->m_currentNation)
 	{
 		m_AI.update(this, hexHandler);
@@ -76,6 +95,8 @@ void UnitStack::update(InputHandler& inputHandler, HexHandler* hexHandler)
 				m_latestHex = m_pathfinder.m_returnPath[m_pathfinder.m_returnPath.size() - 1];
 				sf::Vector2f temp(m_latestHex->getPosition().x + m_latestHex->getRadius(), m_latestHex->getPosition().y + m_latestHex->getRadius());
 				this->setPosition(temp);
+				temp = sf::Vector2f(m_latestHex->getPosition().x + (m_latestHex->getRadius() * m_shadowPositionMultiplier), m_latestHex->getPosition().y + (m_latestHex->getRadius() * m_shadowPositionMultiplier));
+				m_shadowEffect.setPosition(temp);
 				m_pathfinder.m_returnPath.pop_back();
 				if (m_pathfinder.m_returnPath.size() > 0)
 				{
@@ -91,6 +112,8 @@ void UnitStack::update(InputHandler& inputHandler, HexHandler* hexHandler)
 		{
 			sf::Vector2f temp(m_latestHex->getPosition().x + m_latestHex->getRadius(), m_latestHex->getPosition().y + m_latestHex->getRadius());
 			this->setPosition(temp);
+			temp = sf::Vector2f(m_latestHex->getPosition().x + (m_latestHex->getRadius() * m_shadowPositionMultiplier), m_latestHex->getPosition().y + (m_latestHex->getRadius() * m_shadowPositionMultiplier));
+			m_shadowEffect.setPosition(temp);
 		}
 	}
 }

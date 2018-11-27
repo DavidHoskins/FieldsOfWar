@@ -64,6 +64,8 @@ public:
 	sf::Texture** m_Textures;
 
 private:
+	bool m_updatedRender;
+
 	char m_countryTag;
 
 	bool m_hasSetPosition;

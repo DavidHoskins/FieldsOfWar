@@ -147,14 +147,32 @@ void HexHandler::Update(sf::RenderWindow* window, InputHandler& input)
 		}
 		checkForOccupation();
 	}
+
+	if(!initialSetup)
+	{
+		AIThread = std::thread(AIUpdate, m_nationsInfo, this);
+		initialSetup = true;
+	}
+	if (AIThread.joinable()) 
+	{
+		AIThread.join();
+		AIThread = std::thread(AIUpdate, m_nationsInfo, this);
+	}
+}
+
+//Static update for multithreading.
+void HexHandler::AIUpdate(NationHandler* m_nationsInfo, HexHandler* HexArray)
+{
 	for (int i = 0; i < m_nationsInfo->m_nationsInGame.size(); i++)
 	{
 		if (m_nationsInfo->m_nationsInGame[i] != m_nationsInfo->m_currentNation)
 		{
-			m_nationsInfo->m_nationsInGame[i]->m_nationsAI.update(m_nationsInfo->m_nationsInGame[i], this);
+			m_nationsInfo->m_nationsInGame[i]->m_nationsAI.update(m_nationsInfo->m_nationsInGame[i], HexArray);
 		}
 	}
+	return;
 }
+
 
 //When called it makes sure that all tiles in the array are in the right position.
 void HexHandler::resetPosition()

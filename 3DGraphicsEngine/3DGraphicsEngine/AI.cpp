@@ -59,6 +59,7 @@ void AI::update(Nation* currentNation, HexHandler* HexArray)
 }
 
 
+
 //Checks and updates preconditions.
 void AI::checkPreconditions(Nation* currentNation, HexHandler* HexArray)
 {
