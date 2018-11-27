@@ -216,6 +216,8 @@ void StrategyGame::mainRender()
 	if (m_clock->getElapsedTime().asSeconds() > (m_timeSinceLastRender.asSeconds() + (1.0f / k_fps)))
 	{
 		m_timeSinceLastRender = m_clock->getElapsedTime();
+		FPSCounter::setFPSCounter(m_timeSinceLastRender.asSeconds() / 1.0f);
+
 		if (m_Hexagon->getUpdateScreen())
 		{
 			m_window->clear();

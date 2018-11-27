@@ -5,28 +5,15 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\GameObjectHelpers">
-      <UniqueIdentifier>{b2ebe765-3984-4433-8ce4-06a308988823}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObjectHelpers">
       <UniqueIdentifier>{ecf7f7cd-ce21-4d71-a49c-2fc12912c19a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Tiles">
-      <UniqueIdentifier>{352519b1-ee27-4e25-b840-a783d3fa926a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Tiles">
       <UniqueIdentifier>{398a99e8-8f5f-4917-9fe0-fc6e255d64f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\SavingHelpers">
-      <UniqueIdentifier>{b913e151-0c90-4858-a6e1-5a2e857ba556}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\SavingHelpers">
       <UniqueIdentifier>{64037c7f-6c18-4f15-806d-b2cf34710f96}</UniqueIdentifier>
@@ -34,17 +21,8 @@
     <Filter Include="Source Files\Main">
       <UniqueIdentifier>{482ba54d-a26e-4342-a2f5-c1af0d1692c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Main">
-      <UniqueIdentifier>{312c926e-27ea-43d5-baa4-ddefe5d389d8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\NationClasses">
       <UniqueIdentifier>{b5c9c506-2fe3-4668-a520-10da88ccdb76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\NationClasses">
-      <UniqueIdentifier>{c43f8ebd-25ef-4222-a7a4-8ff84fed4c7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\UI">
-      <UniqueIdentifier>{f4f481bb-02b5-4fd1-8cd2-25865777202f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{4cfb51c6-a541-45da-98f6-fadd7b58fb8f}</UniqueIdentifier>
@@ -52,14 +30,8 @@
     <Filter Include="Source Files\Diplomacy">
       <UniqueIdentifier>{c272c5d3-db43-4693-b35a-3126940a12fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Diplomacy">
-      <UniqueIdentifier>{0c4c953f-88f4-472d-9f15-3e079d5b5337}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{c00eef43-082c-48df-8d8d-3671a323be4a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI">
-      <UniqueIdentifier>{3a19850e-0870-4711-89b2-568fa7a5819b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\AI\NationAI">
       <UniqueIdentifier>{a0ab71a6-0ddd-46d4-b81a-f0598262c542}</UniqueIdentifier>
@@ -70,23 +42,51 @@
     <Filter Include="Source Files\AI\NationAI\Nodes">
       <UniqueIdentifier>{84fa3ada-b71a-4c35-b5c2-65d9874fa9ce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\AI\NationAI">
-      <UniqueIdentifier>{b5d5a141-14a8-40ba-b20a-755cca597fc8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI\UnitAI">
-      <UniqueIdentifier>{ee3b36a6-21bc-426c-a51e-62de723f76db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI\NationAI\Nodes">
-      <UniqueIdentifier>{22601867-5363-495f-bee6-34a463e30e3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI\UnitAI\Nodes">
-      <UniqueIdentifier>{c20b909c-e1ee-4739-9487-1f9fda7e241f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\AI\UnitAI\Nodes">
       <UniqueIdentifier>{4d9e7787-9b9e-4f05-ad6f-619ff636d122}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Combat">
       <UniqueIdentifier>{fe8075ba-91bd-42e6-984b-94ea806fc8bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GameObjectHelpers">
+      <UniqueIdentifier>{b2ebe765-3984-4433-8ce4-06a308988823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tiles">
+      <UniqueIdentifier>{352519b1-ee27-4e25-b840-a783d3fa926a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SavingHelpers">
+      <UniqueIdentifier>{b913e151-0c90-4858-a6e1-5a2e857ba556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Main">
+      <UniqueIdentifier>{312c926e-27ea-43d5-baa4-ddefe5d389d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NationClasses">
+      <UniqueIdentifier>{c43f8ebd-25ef-4222-a7a4-8ff84fed4c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{f4f481bb-02b5-4fd1-8cd2-25865777202f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Diplomacy">
+      <UniqueIdentifier>{0c4c953f-88f4-472d-9f15-3e079d5b5337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{3a19850e-0870-4711-89b2-568fa7a5819b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\NationAI">
+      <UniqueIdentifier>{b5d5a141-14a8-40ba-b20a-755cca597fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\NationAI\Nodes">
+      <UniqueIdentifier>{22601867-5363-495f-bee6-34a463e30e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\UnitAI">
+      <UniqueIdentifier>{ee3b36a6-21bc-426c-a51e-62de723f76db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\UnitAI\Nodes">
+      <UniqueIdentifier>{c20b909c-e1ee-4739-9487-1f9fda7e241f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Combat">
       <UniqueIdentifier>{70b4bafc-671a-4283-a037-ac3523d79657}</UniqueIdentifier>
@@ -186,6 +186,9 @@
     <ClInclude Include="PeaceOut.h">
       <Filter>Header Files\AI\NationAI\Nodes</Filter>
     </ClInclude>
+    <ClInclude Include="FPSCounter.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -283,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="PeaceOut.cpp">
       <Filter>Source Files\AI\NationAI\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCounter.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

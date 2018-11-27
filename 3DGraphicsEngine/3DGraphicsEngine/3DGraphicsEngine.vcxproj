@@ -30,6 +30,7 @@
     <ClInclude Include="CombatHelper.h" />
     <ClInclude Include="DeclareWar.h" />
     <ClInclude Include="DiploInteractions.h" />
+    <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Hex.h" />
     <ClInclude Include="HexHandler.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="CombatHelper.cpp" />
     <ClCompile Include="DeclareWar.cpp" />
     <ClCompile Include="DiploInteractions.cpp" />
+    <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Hex.cpp" />
     <ClCompile Include="HexHandler.cpp" />

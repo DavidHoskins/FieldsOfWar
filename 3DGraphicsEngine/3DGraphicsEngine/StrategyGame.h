@@ -12,6 +12,7 @@
 #include "mapLoadHandler.h"
 #include "NationHandler.h"
 #include "CombatHelper.h"
+#include "FPSCounter.h"
 
 class UIHandler;
 
