@@ -10,6 +10,7 @@ StrategyGame::StrategyGame()
 	,m_timeToTarget(0)
 {
 	m_UI = new UIHandler();
+	fpsCounter = new FPSCounter(m_UI);
 	m_Hexagon = new HexHandler(m_UI);
 	m_nations = new NationHandler();
 	m_input = new InputHandler();
@@ -50,6 +51,8 @@ StrategyGame::~StrategyGame()
 	m_input = nullptr;
 	delete m_clock;
 	m_clock = nullptr;
+	delete fpsCounter;
+	fpsCounter = nullptr;
 }
 
 //games main update
@@ -217,7 +220,7 @@ void StrategyGame::mainRender()
 	{
 		float timeSinceLastFrame = m_clock->getElapsedTime().asSeconds() - m_timeSinceLastRender.asSeconds();
 		m_timeSinceLastRender = m_clock->getElapsedTime();
-		FPSCounter::setFPSCounter(1.0f / timeSinceLastFrame);
+		fpsCounter->setFPSCounter(1.0f / timeSinceLastFrame);
 
 		if (m_Hexagon->getUpdateScreen())
 		{

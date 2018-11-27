@@ -6,11 +6,12 @@ static class FPSCounter
 {
 private:
 	float m_framesPerSecond;
-	UIHandler m_handler;
 
 public:
-	FPSCounter(UIHandler& handler);
+	UIHandler* m_handler = new UIHandler();
+
+	FPSCounter(UIHandler* handler);
 	~FPSCounter();
-	static void setFPSCounter(const float framesPerSecond);
+	void setFPSCounter(const float framesPerSecond);
 };
 

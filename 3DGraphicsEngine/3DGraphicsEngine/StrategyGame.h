@@ -74,6 +74,8 @@ private:
 
 	mapLoadHandler m_mapLoader;
 
+	FPSCounter* fpsCounter;
+
 public:
 	StrategyGame();
 	~StrategyGame();
