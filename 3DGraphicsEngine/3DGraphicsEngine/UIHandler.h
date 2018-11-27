@@ -43,6 +43,8 @@ private:
 
 	void buttonUIUpdate(InputHandler* inputInfo, NationHandler* nationInfo, UIElements elementToCheck);
 	void buttonAction(NationHandler* nationInfo, DiploInteractions::interactionsTypes interaction);
+
+	sf::Color textColor = sf::Color::Black;
 public:
 	UIHandler();
 	~UIHandler();

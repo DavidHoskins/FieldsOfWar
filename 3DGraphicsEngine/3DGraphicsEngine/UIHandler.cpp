@@ -35,37 +35,37 @@ void UIHandler::createHexUI()
 	m_panelElements[0]->setUIOrder(0);
 
 	//Province name element.
-	createUITextElement(sf::Vector2f(1525.0f, 400.0f), 20, sf::Color::White);
+	createUITextElement(sf::Vector2f(1525.0f, 400.0f), 20, textColor);
 	m_textElements[Name]->setString("Province");
 	m_textElements[Name]->setUIOrder(1);
 
 	//Income element.
-	createUITextElement(sf::Vector2f(1350.0f, 550.0f), 20, sf::Color::White);
+	createUITextElement(sf::Vector2f(1350.0f, 550.0f), 20, textColor);
 	m_textElements[Income]->setString("Income:");
 	m_textElements[Income]->setUIOrder(1);
 
 	//Expenses element.
-	createUITextElement(sf::Vector2f(1350.0f, 600.0f), 20, sf::Color::White);
+	createUITextElement(sf::Vector2f(1350.0f, 600.0f), 20, textColor);
 	m_textElements[Expenses]->setString("Expenses:");
 	m_textElements[Expenses]->setUIOrder(1);
 
 	//Buildings elements.
-	createUITextElement(sf::Vector2f(1350.0f, 650.0f), 20, sf::Color::White);
+	createUITextElement(sf::Vector2f(1350.0f, 650.0f), 20, textColor);
 	m_textElements[Buildings]->setString("Buildings:");
 	m_textElements[Buildings]->setUIOrder(1);
 
 	//Unit queues.
-	createUITextElement(sf::Vector2f(1600.0f, 650.0f), 20, sf::Color::White);
+	createUITextElement(sf::Vector2f(1600.0f, 650.0f), 20, textColor);
 	m_textElements[Units]->setString("Units:");
 	m_textElements[Units]->setUIOrder(1);
 
 	//Buildings button.
-	createUITextElement(sf::Vector2f(1350.0f, 900.0f), 20, sf::Color::White, sf::Vector2f(200.0f, 40.0f), sf::Color::Blue);
+	createUITextElement(sf::Vector2f(1350.0f, 900.0f), 20, textColor, sf::Vector2f(200.0f, 40.0f), sf::Color::Blue);
 	m_textElements[Buildings_Button]->setString("Buy Buildings");
 	m_textElements[Buildings_Button]->setUIOrder(1);
 
 	//Units button.
-	createUITextElement(sf::Vector2f(1600.0f, 900.0f), 20, sf::Color::White, sf::Vector2f(200.0f, 40.0f), sf::Color::Blue);
+	createUITextElement(sf::Vector2f(1600.0f, 900.0f), 20, textColor, sf::Vector2f(200.0f, 40.0f), sf::Color::Blue);
 	m_textElements[Units_Button]->setString("Buy Units");
 	m_textElements[Units_Button]->setUIOrder(1);
 }
@@ -78,17 +78,17 @@ void UIHandler::createDiploUI()
 	m_panelElements[1]->setUIOrder(0);
 
 	//Units button.
-	createUITextElement(sf::Vector2f(1550.0f, 680.0f), 10, sf::Color::White, sf::Vector2f(100.0f, 20.0f), sf::Color::Transparent, *m_menuBanner);
+	createUITextElement(sf::Vector2f(1550.0f, 680.0f), 10, textColor, sf::Vector2f(100.0f, 20.0f), sf::Color::Transparent, *m_menuBanner);
 	m_textElements[Alliance]->setString("Alliance");
 	m_textElements[Alliance]->setUIOrder(1);
 
 	//Units button.
-	createUITextElement(sf::Vector2f(1550.0f, 700.0f), 10, sf::Color::White, sf::Vector2f(100.0f, 20.0f), sf::Color::Red);
+	createUITextElement(sf::Vector2f(1550.0f, 700.0f), 10, textColor, sf::Vector2f(100.0f, 20.0f), sf::Color::Red);
 	m_textElements[War]->setString("War");
 	m_textElements[War]->setUIOrder(1);
 
 	//Units button.
-	createUITextElement(sf::Vector2f(1550.0f, 720.0f), 10, sf::Color::White, sf::Vector2f(100.0f, 20.0f), sf::Color::Blue);
+	createUITextElement(sf::Vector2f(1550.0f, 720.0f), 10, textColor, sf::Vector2f(100.0f, 20.0f), sf::Color::Blue);
 	m_textElements[RoyalMarriage]->setString("RoyalMarriage");
 	m_textElements[RoyalMarriage]->setUIOrder(1);
 }
@@ -100,27 +100,27 @@ void UIHandler::createCombatUI()
 	createUIBoxElement(sf::Vector2f(1500.0f, 600.0f), sf::Vector2f(700.0f, 700.0f), sf::Color::Transparent, *m_menuBanner);
 	m_panelElements[2]->setUIOrder(0);
 
-	createUITextElement(sf::Vector2f(1550.0f, 660.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1550.0f, 660.0f), 10, textColor);
 	m_textElements[RollValuesAtt]->setString("Roll Value");
 	m_textElements[RollValuesAtt]->setUIOrder(1);
 
-	createUITextElement(sf::Vector2f(1650.0f, 660.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1650.0f, 660.0f), 10, textColor);
 	m_textElements[RollValuesDef]->setString("Roll Value");
 	m_textElements[RollValuesDef]->setUIOrder(1);
 
-	createUITextElement(sf::Vector2f(1550.0f, 680.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1550.0f, 680.0f), 10, textColor);
 	m_textElements[LossValuesAtt]->setString("Loses");
 	m_textElements[LossValuesAtt]->setUIOrder(1);
 
-	createUITextElement(sf::Vector2f(1650.0f, 680.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1650.0f, 680.0f), 10, textColor);
 	m_textElements[LossValuesDef]->setString("Loses");
 	m_textElements[LossValuesDef]->setUIOrder(1);
 
-	createUITextElement(sf::Vector2f(1550.0f, 700.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1550.0f, 700.0f), 10, textColor);
 	m_textElements[UnitSizesAtt]->setString("Units");
 	m_textElements[UnitSizesAtt]->setUIOrder(1);
 
-	createUITextElement(sf::Vector2f(1650.0f, 700.0f), 10, sf::Color::White);
+	createUITextElement(sf::Vector2f(1650.0f, 700.0f), 10, textColor);
 	m_textElements[UnitSizesDef]->setString("Units");
 	m_textElements[UnitSizesDef]->setUIOrder(1);
 }
