@@ -18,6 +18,7 @@ UIText::~UIText()
 	}
 }
 
+//Abstraction layer for setting the UIText string
 void UIText::setText(const std::string text) 
 {
 	this->setString(text);
