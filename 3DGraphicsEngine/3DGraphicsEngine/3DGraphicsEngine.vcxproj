@@ -34,6 +34,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Hex.h" />
     <ClInclude Include="HexHandler.h" />
+    <ClInclude Include="HexQuadTree.h" />
     <ClInclude Include="HuntEnemyUnits.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="mapLoadHandler.h" />
@@ -68,6 +69,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Hex.cpp" />
     <ClCompile Include="HexHandler.cpp" />
+    <ClCompile Include="HexQuadTree.cpp" />
     <ClCompile Include="HuntEnemyUnits.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Main.cpp" />

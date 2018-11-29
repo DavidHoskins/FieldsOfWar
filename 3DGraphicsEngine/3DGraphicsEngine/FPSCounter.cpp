@@ -13,7 +13,7 @@ FPSCounter::~FPSCounter()
 
 void FPSCounter::setFPSCounter(const float framesPerSecond)
 {
-	std::cout << framesPerSecond << std::endl;
-	m_uiText->setText(std::to_string(framesPerSecond));
+	//std::cout << framesPerSecond << std::endl;
+	m_uiText->setText(std::to_string(static_cast<int>(ceil(framesPerSecond))));
 	m_handler->setFPSElements(true);
 }

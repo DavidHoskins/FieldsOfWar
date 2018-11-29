@@ -12,6 +12,8 @@ HexHandler::HexHandler(UIHandler* UIInfo)
 {
 	hexImageLoading();
 
+	quadTreeTest = new HexQuadTree(sf::Vector2f(0,0), sf::Vector2f(m_hexMapWidth * 40, m_hexMapHeight * 40));
+
 	m_mapTiles = new Hex*[(m_hexMapWidth*m_hexMapHeight)];
 	for (int i = 0; i < m_hexMapWidth; i++)
 	{
@@ -19,6 +21,7 @@ HexHandler::HexHandler(UIHandler* UIInfo)
 		{
 			m_mapTiles[i + (j * m_hexMapWidth)] = new Hex(40, UIInfo, m_HexImageTextures);
 			m_mapTiles[i + (j * m_hexMapWidth)]->hexID = (i + (j* m_hexMapWidth));
+			quadTreeTest->insertData(m_mapTiles[i + (j * m_hexMapWidth)]);
 		}
 	}
 
@@ -69,6 +72,8 @@ HexHandler::~HexHandler()
 	delete m_targetPointOne;
 	m_targetPointTwo = nullptr;
 	delete m_targetPointTwo;
+
+	delete quadTreeTest;
 
 	//Clears all units from the game.
 	for (int y = 0; y < m_unitsInGame.size(); y++)
@@ -157,6 +162,44 @@ void HexHandler::Update(sf::RenderWindow* window, InputHandler& input)
 	{
 		AIThread.join();
 		AIThread = std::thread(AIUpdate, m_nationsInfo, this);
+	}
+}
+
+//Main render for the hexs.
+void HexHandler::Render(sf::RenderWindow* window, sf::Clock* mainClock)
+{
+
+	if (getUpdateScreen())
+	{
+		window->clear();
+
+		float bufferMultiplier = 1.1f;
+
+		int xPosMin = window->getView().getCenter().x - ((window->getView().getSize().x * bufferMultiplier) / 2);
+		int xPosMax = (window->getView().getCenter().x + ((window->getView().getSize().x * bufferMultiplier) / 2));
+
+		int yPosMin = window->getView().getCenter().y - ((window->getView().getSize().y * bufferMultiplier) / 2);
+		int yPosMax = (window->getView().getCenter().y + ((window->getView().getSize().y * bufferMultiplier) / 2));
+
+		for (int i = 0; i < getMapHeight(); i++)
+		{
+			for (int j = 0; j < getMapWidth(); j++)
+			{
+				sf::Vector2f hexPos = getHexAtPosition(j, i)->getPosition();
+				if (hexPos.x < xPosMax && hexPos.x > xPosMin)
+				{
+					if (hexPos.y < yPosMax && hexPos.y > yPosMin)
+					{
+						getHexAtPosition(j, i)->render(*window);
+					}
+				}
+			}
+		}
+		for (int i = 0; i < m_unitsInGame.size(); i++)
+		{
+			m_unitsInGame[i]->render(*window);
+		}
+		setUpdateScreen(true);
 	}
 }
 

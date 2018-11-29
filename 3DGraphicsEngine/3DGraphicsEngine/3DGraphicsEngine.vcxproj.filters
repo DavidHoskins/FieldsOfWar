@@ -189,6 +189,9 @@
     <ClInclude Include="FPSCounter.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="HexQuadTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="FPSCounter.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HexQuadTree.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

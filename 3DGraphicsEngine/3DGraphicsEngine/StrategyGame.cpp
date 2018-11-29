@@ -221,49 +221,17 @@ void StrategyGame::mainRender()
 		float timeSinceLastFrame = m_clock->getElapsedTime().asSeconds() - m_timeSinceLastRender.asSeconds();
 		m_timeSinceLastRender = m_clock->getElapsedTime();
 		fpsCounter->setFPSCounter(1.0f / timeSinceLastFrame);
-
-		if (m_Hexagon->getUpdateScreen())
-		{
-			m_window->clear();
-
-			float bufferMultiplier = 1.1f;
-
-			int xPosMin = m_window->getView().getCenter().x - ((m_window->getView().getSize().x * bufferMultiplier) / 2);
-			int xPosMax = (m_window->getView().getCenter().x + ((m_window->getView().getSize().x * bufferMultiplier) / 2));
-
-			int yPosMin = m_window->getView().getCenter().y - ((m_window->getView().getSize().y * bufferMultiplier) / 2);
-			int yPosMax = (m_window->getView().getCenter().y + ((m_window->getView().getSize().y * bufferMultiplier) / 2));
-
-			for (int i = 0; i < m_Hexagon->getMapHeight(); i++)
-			{
-				for (int j = 0; j < m_Hexagon->getMapWidth(); j++)
-				{
-					sf::Vector2f hexPos = m_Hexagon->getHexAtPosition(j, i)->getPosition();
-					if(hexPos.x < xPosMax && hexPos.x > xPosMin)
-					{
-						if(hexPos.y < yPosMax && hexPos.y > yPosMin)
-						{
-							m_Hexagon->getHexAtPosition(j, i)->render(*m_window);
-						}
-					}
-				}
-			}
-			for (int i = 0; i < m_Hexagon->m_unitsInGame.size(); i++)
-			{
-				m_Hexagon->m_unitsInGame[i]->render(*m_window);
-			}
-			m_Hexagon->setUpdateScreen(true);
-			m_window->setView(m_defaultView);
-			mainUIRender();
-			m_window->setView(m_view);
-			m_window->display();
-		}
-		if (m_timeToTarget > 0)
-		{
-			m_view.setSize((m_view.getSize().x + m_smoothingAmount.x), (m_view.getSize().y + m_smoothingAmount.y));
-			m_window->setView(m_view);
-			m_timeToTarget--;
-		}
+		m_Hexagon->Render(m_window, m_clock);
+		m_window->setView(m_defaultView);
+		mainUIRender();
+		m_window->setView(m_view);
+		m_window->display();
+	}
+	if (m_timeToTarget > 0)
+	{
+		m_view.setSize((m_view.getSize().x + m_smoothingAmount.x), (m_view.getSize().y + m_smoothingAmount.y));
+		m_window->setView(m_view);
+		m_timeToTarget--;
 	}
 }
 
