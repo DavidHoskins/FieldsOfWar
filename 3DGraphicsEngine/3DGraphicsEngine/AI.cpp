@@ -50,12 +50,12 @@ AI::~AI()
 //Main update for the AI.
 void AI::update(Nation* currentNation, HexHandler* HexArray)
 {
-	checkPreconditions(currentNation, HexArray);
-	m_currentAIPath = m_AILogic[0]->getBestPath();
-	if (m_currentAIPath.size() != 0)
-	{
-		m_currentAIPath[0]->action(currentNation, HexArray);
-	}
+	//checkPreconditions(currentNation, HexArray);
+	//m_currentAIPath = m_AILogic[0]->getBestPath();
+	//if (m_currentAIPath.size() != 0)
+	//{
+		//m_currentAIPath[0]->action(currentNation, HexArray);
+	//}
 }
 
 

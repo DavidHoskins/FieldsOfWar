@@ -33,6 +33,13 @@ void RelationshipHandler::Update(NationHandler* nations)
 			m_diploInteractionsState[(m_diploInteractionsState.size() - 1)]->setNationID(nations->m_nationsInGame[i]->getCountryTag());
 		}
 	}
+	for(int i = 0; i < m_diploInteractionsState.size(); i++)
+	{
+		if(m_diploInteractionsState[i]->hasTruce())
+		{
+			m_diploInteractionsState[i]->decrementTruce();
+		}
+	}
 }
 
 //Sets the relationships of both the nations to the correct value.
@@ -42,10 +49,42 @@ void RelationshipHandler::setRelationshipByType(Nation* thisNation, Nation* othe
 	{
 		if (m_diploInteractionsState[i]->getNationID() == otherNation->getCountryTag())
 		{
+			if (interaction == DiploInteractions::war) 
+			{
+				if (value) 
+				{
+
+					if (m_diploInteractionsState[i]->hasTruce())
+					{
+						return;
+					}
+				}
+				else
+				{
+					m_diploInteractionsState[i]->setTruceTimer(20);
+				}
+			}
 			m_diploInteractionsState[i]->setInteractionState(interaction, value);
 		}
 		if (otherNation->m_relations.m_diploInteractionsState[i]->getNationID() == thisNation->getCountryTag())
 		{
+			if (interaction == DiploInteractions::war) 
+			{
+				if (value) 
+				{
+					if (otherNation->m_relations.m_diploInteractionsState[i]->hasTruce())
+					{
+						return;
+					}
+					else
+					{
+					}
+				}
+				else
+				{
+					m_diploInteractionsState[i]->setTruceTimer(20);
+				}
+			}
 			otherNation->m_relations.m_diploInteractionsState[i]->setInteractionState(interaction, value);
 		}
 	}

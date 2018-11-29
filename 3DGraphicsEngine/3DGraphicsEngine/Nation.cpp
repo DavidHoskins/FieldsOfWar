@@ -37,7 +37,15 @@ void Nation::update()
 	calculateExpenses();
 	for (int i = 0; i < m_ownedTiles.size(); i++)
 	{
-		m_ownedTiles[i]->ChangeColour(*m_nationColor);
+		if(m_ownedTiles[i]->getIsBorderTile())
+		{
+			sf::Color temp((static_cast<float>(m_nationColor->r) * k_borderColorMultiplier), (static_cast<float>(m_nationColor->g) * k_borderColorMultiplier), (static_cast<float>(m_nationColor->b) * k_borderColorMultiplier), m_nationColor->a);
+			m_ownedTiles[i]->ChangeColour(temp);
+		}
+		else 
+		{
+			m_ownedTiles[i]->ChangeColour(*m_nationColor);
+		}
 	}
 	for (int i = 0; i < m_ownedUnits.size(); i++)
 	{
@@ -48,6 +56,7 @@ void Nation::update()
 		}
 	}
 	m_money += (m_income - m_expenses);
+	calculateBorders();
 }
 
 //Calculates the expenses generated across the nation.
@@ -115,3 +124,31 @@ bool Nation::checkAtWar()
 	}
 	return false;
 }
+
+//Calculates which hexs fall on the border of the country.
+void Nation::calculateBorders()
+{
+	for(int i = 0; i < m_ownedTiles.size(); i++)
+	{
+		m_ownedTiles[i]->setIsBorderTile(true);
+		int numberTouching = 0;
+		for(int j = 0; j < m_ownedTiles.size(); j++)
+		{
+			if(i != j)
+			{
+				int dX = m_ownedTiles[i]->getPosition().x - m_ownedTiles[j]->getPosition().x;
+				int dY = m_ownedTiles[i]->getPosition().y - m_ownedTiles[j]->getPosition().y;
+				int distance = sqrt((dX * dX) + (dY * dY));
+				if(distance < (m_ownedTiles[i]->getRadius() + m_ownedTiles[j]->getRadius()))
+				{
+					numberTouching++;
+				}
+			}
+		}
+		if(numberTouching > 5)
+		{
+			m_ownedTiles[i]->setIsBorderTile(false);
+		}
+	}
+}
+

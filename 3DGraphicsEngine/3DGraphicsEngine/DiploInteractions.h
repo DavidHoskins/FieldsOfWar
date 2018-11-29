@@ -13,9 +13,13 @@ public:
 	void setNationID(std::string value){m_diploNationID = value;}
 	bool getInteractionState(interactionsTypes value){ return m_interactions[value]; }
 	void setInteractionState(interactionsTypes type, bool value){m_interactions[type] = value; }
+	bool hasTruce() { return (truceTimeLeft > 0); }
+	void decrementTruce() { truceTimeLeft--; }
+	void setTruceTimer(int value) { truceTimeLeft = value; }
 private:
 	std::string m_diploNationID;
 	bool m_interactions[4];
+	int truceTimeLeft = 0;
 };
 
 #endif // DIPLOINTERACTIONS_H

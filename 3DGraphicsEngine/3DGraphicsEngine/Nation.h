@@ -2,6 +2,7 @@
 #define NATION_H
 
 #include <vector>
+#include <math.h>
 
 #include "Hex.h"
 #include "UIText.h"
@@ -23,6 +24,10 @@ private:
 
 	void calculateIncome();
 	void calculateExpenses();
+
+	void calculateBorders();
+
+	const float k_borderColorMultiplier = 0.6f;
 
 
 public:

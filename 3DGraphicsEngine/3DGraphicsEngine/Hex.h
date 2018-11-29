@@ -63,7 +63,12 @@ public:
 	sf::Sprite* m_HexSprite;
 	sf::Texture** m_Textures;
 
+	bool getIsBorderTile() { return m_isBorderTile; }
+	void setIsBorderTile(bool value) { m_isBorderTile = value; }
+
 private:
+	bool m_isBorderTile;
+
 	bool m_updatedRender;
 
 	char m_countryTag;
