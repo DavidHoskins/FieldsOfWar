@@ -7,7 +7,6 @@
 
 #include "PathFinder.h"
 #include "UnitStack.h"
-#include "HexQuadTree.h"
 
 class NationHandler;
 class UIHandler;
@@ -41,13 +40,10 @@ private:
 	std::thread AIThread;
 	bool initialSetup = false;
 
-	HexQuadTree* quadTreeTest;
-
 public:
 	HexHandler(UIHandler* UIInfo);
 	~HexHandler();
 	void Update(sf::RenderWindow* window, InputHandler& input);
-	void Render(sf::RenderWindow* window, sf::Clock* mainClock);
 
 	int getMapWidth() const{return m_hexMapWidth;}
 	int getMapHeight() const{return m_hexMapHeight;}
